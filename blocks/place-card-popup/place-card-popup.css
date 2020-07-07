@@ -1,0 +1,17 @@
+@import url(__image/place-card-popup__image.css);
+
+.place-card-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+@media screen and (max-width: 540px) {
+  .place-card-popup {
+    width: calc(100% - 60px);
+  }
+}
