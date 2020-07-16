@@ -35,7 +35,11 @@ export class Api {
   }
 
   uploadUserInfo(name, job, avatar) {
-    return fetch('https://praktikum.tk/cohort11/users/me', {
+
+    const API_URL = NODE_ENV === 'production' ? 'https://praktikum.tk' : 'http://praktikum.tk';
+
+
+    return fetch(`${API_URL}/cohort11/users/me`, {
       method: 'PATCH',
       headers: {
         authorization: '1800825d-661f-4200-a76e-67715bff8281',
