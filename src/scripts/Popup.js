@@ -1,4 +1,4 @@
-class Popup {
+export class Popup {
 
   static _template = document.querySelector('#popup-form-template').content;
   

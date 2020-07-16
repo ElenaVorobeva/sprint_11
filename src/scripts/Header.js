@@ -1,4 +1,4 @@
-class Header {
+export class Header {
 
   static _template = document.querySelector('#header-template').content;
 

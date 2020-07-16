@@ -1,4 +1,4 @@
-class CardsContainer {
+export class CardsContainer {
   static _template = document.querySelector('#place-list-template').content;
 
   render(container) {

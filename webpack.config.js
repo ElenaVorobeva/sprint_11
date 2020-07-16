@@ -14,13 +14,57 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader"
+          loader: "babel-loader",
+          options: {
+            "plugins": [
+              ["@babel/plugin-proposal-class-properties", { "loose": true }]
+            ]
+          }
         }
       },
       {
         test: /\.css$/,
-        use:  [MiniCssExtractPlugin.loader, {loader: 'css-loader', options: { importLoaders: 2 }}, 'postcss-loader'] // добавили минификацию CSS
+        use:  [MiniCssExtractPlugin.loader,
+                {
+                  loader: 'css-loader', options: { importLoaders: 2 }
+                },
+                  'postcss-loader'
+              ]
+      },
+      {
+        test: /\.(woff2)$/,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: './fonts/[name].[ext]'
+          }
+        }
+      },
+
+      {
+        test: /\.(png|jpe?g|gif|svg|webp)$/,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: './images/[name].[ext]'
+          }
+        }
       }
+
+
+      // {
+      //   test: /\.(png|jpe?g|gif)$/i,
+      //   loader: 'file-loader',
+      //   options: {
+      //     name(resourcePath, resourceQuery) {
+      //       if (process.env.NODE_ENV === 'development') {
+      //         return '[path][name].[ext]';
+      //       }
+
+      //       return '[contenthash].[ext]';
+      //     },
+      //   },
+      // }
     ]
   },
   plugins: [

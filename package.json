@@ -19,12 +19,17 @@
   "homepage": "https://github.com/ElenaVorobeva/sprint_11#readme",
   "devDependencies": {
     "@babel/cli": "^7.10.4",
+    "@babel/plugin-transform-classes": "^7.10.4",
+    "@babel/plugin-transform-runtime": "^7.10.4",
     "@babel/preset-env": "^7.10.4",
     "autoprefixer": "^9.8.5",
     "babel-loader": "^8.1.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
     "core-js": "^3.4.1",
     "css-loader": "^3.6.0",
     "cssnano": "^4.1.10",
+    "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.3.0",
     "mini-css-extract-plugin": "^0.9.0",
     "postcss-loader": "^3.0.0",
@@ -34,7 +39,8 @@
     "webpack-md5-hash": "0.0.6"
   },
   "dependencies": {
-    "babel-polyfill": "^6.26.0",
-    "@babel/core": "^7.10.4"
+    "@babel/core": "^7.10.4",
+    "@babel/runtime": "^7.10.4",
+    "babel-polyfill": "^6.26.0"
   }
 }
