@@ -4,8 +4,9 @@
   "description": "webpack build",
   "main": "index.js",
   "scripts": {
-    "build": "rm -rf dist && webpack --mode production",
-    "dev": "webpack-dev-server --mode development --open --watch"
+    "build": "NODE_ENV=production rimraf dist && webpack --mode production",
+    "dev": "NODE_ENV=development webpack-dev-server --mode development --open --watch",
+    "deploy": "NODE_ENV=production gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -16,7 +17,8 @@
   "bugs": {
     "url": "https://github.com/ElenaVorobeva/sprint_11/issues"
   },
-  "homepage": "https://github.com/ElenaVorobeva/sprint_11#readme",
+
+  "homepage": "https://ElenaVorobeva.github.io/sprint_11/",
   "devDependencies": {
     "@babel/cli": "^7.10.4",
     "@babel/plugin-transform-classes": "^7.10.4",
@@ -27,12 +29,16 @@
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "core-js": "^3.4.1",
+    "cross-env": "^7.0.2",
     "css-loader": "^3.6.0",
     "cssnano": "^4.1.10",
     "file-loader": "^6.0.0",
+    "gh-pages": "^3.1.0",
     "html-webpack-plugin": "^4.3.0",
     "mini-css-extract-plugin": "^0.9.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
     "postcss-loader": "^3.0.0",
+    "style-loader": "^1.2.1",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0",
