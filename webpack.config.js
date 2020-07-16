@@ -36,7 +36,7 @@ module.exports = {
         use: {
           loader: 'file-loader',
           options: {
-            name: 'file-loader?name=./vendor/[name].[ext]'
+            name: './vendor/[name].[ext]'
           }
         }
       },
@@ -81,6 +81,10 @@ module.exports = {
               preset: ['default'],
       },
       canPrint: true
+    }),
+
+    new webpack.DefinePlugin({
+      'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     })
   ]
 };
