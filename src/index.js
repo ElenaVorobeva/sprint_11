@@ -1,11 +1,5 @@
 import "./style.css";
 
-// import close from './images/close.svg';
-// import likeActive from './images/like-active.svg';
-// import likeInactive from './images/like-inactive.svg';
-// import logo from './images/logo.svg';
-// import trashIcon from './images/trash-icon.svg';
-
 import { Api } from "./scripts/Api.js";
 import { Header } from "./scripts/Header.js";
 import { Profile } from "./scripts/Profile.js";

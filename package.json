@@ -17,7 +17,6 @@
   "bugs": {
     "url": "https://github.com/ElenaVorobeva/sprint_11/issues"
   },
-
   "homepage": "https://ElenaVorobeva.github.io/sprint_11/",
   "devDependencies": {
     "@babel/cli": "^7.10.4",
@@ -35,6 +34,7 @@
     "file-loader": "^6.0.0",
     "gh-pages": "^3.1.0",
     "html-webpack-plugin": "^4.3.0",
+    "image-webpack-loader": "^6.0.0",
     "mini-css-extract-plugin": "^0.9.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "postcss-loader": "^3.0.0",

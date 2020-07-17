@@ -29,27 +29,33 @@ module.exports = {
 
       {
         test: /\.css$/,
-        use: [(isDev ? 'style-loader' : MiniCssExtractPlugin.loader),'css-loader', 'postcss-loader']},
+        use: [(isDev ? 'style-loader' : MiniCssExtractPlugin.loader),
+        {
+          loader:'css-loader',
+          options: {
+            importLoaders: 2
+          }
+        }, 'postcss-loader'
+              ]},
 
       {
-        test: /\.(eot|ttf|woff|woff2)$/,
-        use: {
-          loader: 'file-loader',
-          options: {
-            name: './vendor/[name].[ext]'
-          }
-        }
+        test: /\.(eot|ttf|woff|woff2)$/i,
+        use: 'file-loader?name=./vendor/fonts/[name].[ext]&esModule=false'
       },
 
       {
-        test: /\.(png|jpe?g|gif|svg|webp)$/,
-        use: {
-          loader: 'file-loader',
-          options: {
-            name: './images/[name].[ext]'
-          }
-        }
-      },
+        test: /\.(gif|png|jpe?g|svg)$/i,
+        use: [
+          'file-loader?name=./images/[name].[ext]&esModule=false',
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              bypassOnDebug: true,
+              disable: true,
+            },
+          },
+        ],
+      }
     ]
   },
 
