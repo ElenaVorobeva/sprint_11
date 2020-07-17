@@ -2,7 +2,7 @@
  Версия 0.0.6
 
  ## О проекте:
-Обучение настройки Webpack
+Обучение настройке Webpack'а
 
  ## Стэк технологий:
  ES6, Babel, OOP, CSS3, HTML5, Webpack, OOP, BEM
