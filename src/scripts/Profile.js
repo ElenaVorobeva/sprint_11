@@ -1,4 +1,4 @@
-class Profile {
+export class Profile {
 
   static _template = document.querySelector('#profile-template').content;
 

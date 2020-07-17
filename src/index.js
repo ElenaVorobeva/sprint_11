@@ -1,3 +1,14 @@
+import "./style.css";
+
+import { Api } from "./scripts/Api.js";
+import { Header } from "./scripts/Header.js";
+import { Profile } from "./scripts/Profile.js";
+import { CardsContainer } from "./scripts/CardsContainer.js";
+import { CardList } from "./scripts/CardList.js";
+import { Card } from "./scripts/Card.js";
+import { Popup } from "./scripts/Popup.js";
+import { UserInfo } from "./scripts/UserInfo.js";
+import { FormValidator } from "./scripts/FormValidator.js";
 
 (function () {
 /*------------------------------------------------------------------------------
@@ -47,15 +58,17 @@ const formValidatorEditInfo = new FormValidator(infoFormName, infoFormLink, info
 /*------------------------------------------------------------------------------
 Переменные для апи
 ------------------------------------------------------------------------------*/
+const API_URL = NODE_ENV === 'production' ? 'https://praktikum.tk' : 'http://praktikum.tk';
+
 const cardConfig = {
-  url: 'https://praktikum.tk/cohort11/cards',
+  url: `${API_URL}/cohort11/cards`,
   headers: {
     authorization: '1800825d-661f-4200-a76e-67715bff8281'
   }
 }
 
 const userConfig = {
-  url: 'https://praktikum.tk/cohort11/users/me',
+  url: `${API_URL}/cohort11/users/me`,
   headers: {
     method: 'PATCH',
     authorization: '1800825d-661f-4200-a76e-67715bff8281',
@@ -63,7 +76,7 @@ const userConfig = {
   }
 }
 
-const apiUser = new Api(userConfig);
+const apiUser = new Api(userConfig, API_URL);
 const userInfo = new UserInfo(nameEditProfile, jobEditProfile, apiUser, userPhoto, nameInput, jobInput, popup, infoForm);
 
 
@@ -166,51 +179,3 @@ api.getCards()
   });
 
 })();
-
-
-/*REVIEW. Резюме.
-
-Неплохая работа, но надо в полной мере учитывать возможность неуспешности запросов к серверу,
-хоть её и трудно смоделировать.
-
-Что надо исправить
-
-1. + В методах Api нужна проверка статуса ответа сервера (подробный комментарий и образец в файле класса Api).
-
-2. + Аргументами метода api.uploadUserInfo должны быть значения из полей ввода формы профиля, а не свойства класса
-(подробный комментарий в файле класса UserInfo).
-
-3. + В методе updateUserInfo класса UserInfo обязательно нужно вызывать метод setUserInfo класса UserInfo
-(подробные комментарии в файле класса UserInfo и в этом файле в слушателе сабмита формы профиля).
-
-4. + Команда закрытия формы профиля должна быть в методе then обработки ответа сервера
-(подробные комментарии в файле класса UserInfo и в этом файле в слушателе сабмита формы профиля).
-
-
-REVIEW2. Резюме2.
-
-Ошибки взаимодействия с сервером исправлены.
-
-Проект стал хорошим.
-
-
-Что можно лучше.
-
-1. Не вижу особого смысла в оборачивании существующей размётки форм в тег template.
-
-Тег template уместно применять, когда у Вас много объектов с одной структурой (карточек, например), с которыми нужно работать в каком-либо цикле.
-
-2. Не очень правильно происходит валидация форм.
-В начале работы с формой карточки, при вводе информации в одно поле и появления под ним сообщения об ошибке, появляется сообщение "Это обязательное поле"
-и под другим полем, хотя, если в поле ничего ещё не вводили, под ним не должны высвечиваться никакие сообщения об ошибке.
-Нужно подумать почему так происходит и лучше исправить.
-
-
-Работа принимается.
-
-Желаю успехов в дальнейшем обучении!
-
-
-
-
-*/

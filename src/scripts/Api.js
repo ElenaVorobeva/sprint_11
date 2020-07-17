@@ -1,10 +1,11 @@
-class Api {
-  constructor(config) {
+export class Api {
+  constructor(config, API_URL) {
     this._url = config.url;
     this._headers = config.headers;
     this._method = config.method;
     this._name = config.name;
     this._about = config.about;
+    this._api = API_URL;
   }
 
   getCards() {
@@ -35,7 +36,8 @@ class Api {
   }
 
   uploadUserInfo(name, job, avatar) {
-    return fetch('https://praktikum.tk/cohort11/users/me', {
+
+    return fetch(`${this._api}/cohort11/users/me`, {
       method: 'PATCH',
       headers: {
         authorization: '1800825d-661f-4200-a76e-67715bff8281',

@@ -6,7 +6,6 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Mesto</title>
   <link rel="stylesheet" href="./pages/index.css">
-  <!-- Лучше добавлять script в конец body -->
   <script src="scripts/initialCards.js" defer></script>
   <script src="scripts/popup.js" defer></script>
   <script src="scripts/script.js" defer></script>
@@ -15,7 +14,7 @@
 <body>
   <div class="root">
     <header class="header root__section">
-      <img src="./images/logo.svg" alt="mesto logo" class="logo">
+      <img src="<%=require('./images/logo.svg')%>" alt="mesto logo" class="logo">
     </header>
     <div class="profile root__section">
       <div class="user-info">
@@ -29,21 +28,6 @@
       </div>
     </div>
     <div class="places-list root__section">
-
-      <!-- Пример вёрстки карточки: -->
-
-      <!-- <div class="place-card">
-        <div class="place-card__image" style="background-image: url(https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg)">
-          <button class="place-card__delete-icon"></button>
-        </div>
-        <div class="place-card__description">
-          <h3 class="place-card__name">Камчатка</h3>
-          <button class="place-card__like-icon"></button>
-        </div>
-      </div> -->
-
-      <!-- конец примера. -->
-
     </div>
 
     <div class="popup">

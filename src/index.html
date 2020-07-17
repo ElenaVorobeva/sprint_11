@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Mesto</title>
-  <link rel="stylesheet" href="./pages/index.css">
+  <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.css %>">
 </head>
 <body>
 
@@ -13,7 +13,7 @@
 
   <template id="header-template">
     <header class="header root__section">
-      <img src="./images/logo.svg" alt="mesto logo" class="logo">
+      <img src="<%=require('./images/logo.svg')%>" alt="mesto logo" class="logo">
     </header>
   </template>
 
@@ -40,7 +40,7 @@
     <div class="popups">
       <div id="cardForm" class="popup">
         <div class="popup__content">
-          <img src="./images/close.svg" alt="" class="popup__close">
+          <img src="<%=require('./images/close.svg')%>" alt="" class="popup__close">
           <h3 class="popup__title">Новое место</h3>
           <form class="popup__form popup__form_card" name="newCard">
               <input id="cardName" type="text" name="name" class="popup__input popup__card-form-input_type_name" placeholder="Название">
@@ -54,14 +54,14 @@
 
       <div class="popup">
         <div class="place-card-popup">
-          <img src="./images/close.svg" alt="" class="popup__close">
+          <img src="<%=require('./images/close.svg')%>" alt="" class="popup__close">
           <img class="place-card-popup__image">
         </div>
       </div>
 
       <div id="infoForm" class="popup">
         <div class="popup__content">
-          <img src="./images/close.svg" alt="" class="popup__close">
+          <img src="<%=require('./images/close.svg')%>" alt="" class="popup__close">
           <h3 class="popup__title">Редактировать профиль</h3>
           <form class="popup__form popup__form_info" name="newInfo">
               <input id="input__info-name" type="text" name="name" class="popup__input popup__info-form-input_type_name" placeholder="Имя">
@@ -76,7 +76,8 @@
     </div>
   </template>
 
-  <script src="scripts/Api.js"></script>
+  <script type="module" src="<%= htmlWebpackPlugin.files.js %>"></script>
+  <!-- <script src="scripts/Api.js"></script>
   <script src="scripts/Header.js"></script>
   <script src="scripts/Profile.js"></script>
   <script src="scripts/CardsContainer.js"></script>
@@ -85,6 +86,6 @@
   <script src="scripts/Popup.js"></script>
   <script src="scripts/UserInfo.js"></script>
   <script src="scripts/FormValidator.js"></script>
-  <script src="scripts/script.js"></script>
+  <script src="scripts/script.js"></script> -->
 </body>
 </html>
