@@ -1,5 +1,5 @@
 # Yandex Praktikum: Webpack Tutorial (sprint 11)
- Версия 0.0.6
+ Версия 0.0.7
 
  ## О проекте:
 Обучение настройке Webpack'а
