@@ -58,15 +58,17 @@ const formValidatorEditInfo = new FormValidator(infoFormName, infoFormLink, info
 /*------------------------------------------------------------------------------
 Переменные для апи
 ------------------------------------------------------------------------------*/
+const API_URL = NODE_ENV === 'production' ? 'https://praktikum.tk' : 'http://praktikum.tk';
+
 const cardConfig = {
-  url: 'https://praktikum.tk/cohort11/cards',
+  url: `${API_URL}/cohort11/cards`,
   headers: {
     authorization: '1800825d-661f-4200-a76e-67715bff8281'
   }
 }
 
 const userConfig = {
-  url: 'https://praktikum.tk/cohort11/users/me',
+  url: `${API_URL}/cohort11/users/me`,
   headers: {
     method: 'PATCH',
     authorization: '1800825d-661f-4200-a76e-67715bff8281',
@@ -74,7 +76,7 @@ const userConfig = {
   }
 }
 
-const apiUser = new Api(userConfig);
+const apiUser = new Api(userConfig, API_URL);
 const userInfo = new UserInfo(nameEditProfile, jobEditProfile, apiUser, userPhoto, nameInput, jobInput, popup, infoForm);
 
 
